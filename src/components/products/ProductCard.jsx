@@ -1,8 +1,9 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
+import Card from "@mui/joy/Card";
+import CardCover from "@mui/joy/CardCover";
+import CardContent from "@mui/joy/CardContent";
+import Typography from "@mui/joy/Typography";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function ProductCard({
   pTitle,
@@ -12,34 +13,32 @@ export default function ProductCard({
   pPrice,
   pId,
 }) {
+  const { theme } = useTheme();
+  const productImg = pImg[0];
+  const textColor = theme ? "#000" : "#fff";
+  const border = theme ? "2px solid black" : "1px solid white";
   return (
-    <Card sx={{ maxWidth: 250, maxHeight: 400, border: "1px solid black" }}>
-      <Typography
-        variant="subtitle1"
-        style={{
-          margin: "5px",
-          fontSize: "15px",
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-          whiteSpace: "nowrap",
-        }}
-      >
-        {pTitle.split(" ").slice(0, 5).join(" ")}{" "}
-      </Typography>
-
-      <CardMedia component="img" src={pImg[0]} alt={pImg} />
-      <CardContent>
-        <Typography variant="body2" style={{ fontWeight: "700" }}>
-          ${pPrice} Id={pId}
-        </Typography>
-        <Typography variant="body2">{pCategory}</Typography>
-      </CardContent>
-    </Card>
-    // <div>
-    //   <div className="card_div" style={{ backgroundImage: { pImg } }}>
-    //     <img src={pImg} alt={pImg} />
-    //     {pTitle}
-    //   </div>
-    // </div>
+    <div className="card_div">
+      <Card sx={{ minHeight: "250px", width: 250, border: { border } }}>
+        <CardCover>
+          <img src={productImg} loading="lazy" alt="" />
+        </CardCover>
+        <CardCover
+          sx={{
+            background: theme
+              ? "linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 200px),linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 300px)"
+              : "linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
+          }}
+        />
+        <CardContent sx={{ justifyContent: "flex-end" }}>
+          <Typography level="title-lg" textColor={textColor}>
+            {pTitle}
+          </Typography>
+          <Typography textColor={textColor}>
+            ${pPrice} {pCategory}
+          </Typography>
+        </CardContent>
+      </Card>
+    </div>
   );
 }

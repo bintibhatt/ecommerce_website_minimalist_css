@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import AllProducts from "./components/products/AllProducts";
 import ProductCategory from "./components/products/ProductCategory";
+import ProductInfo from "./components/products/ProductInfo";
 
 function MainPage() {
   const { theme } = useTheme();
@@ -23,6 +24,7 @@ function MainPage() {
             element={<ProductCategory />}
           />
         </Route>
+        <Route path="/products/:productId" element={<ProductInfo />} />
       </Routes>
     </div>
   );

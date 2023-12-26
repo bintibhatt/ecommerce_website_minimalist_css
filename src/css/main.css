@@ -28,7 +28,7 @@ body {
       .Container .navbar_div .nav_section_right .nav_cart_icon {
         cursor: pointer; }
   .Container .main_home_div {
-    width: 80%;
+    width: 70%;
     display: flex;
     gap: 30px; }
     .Container .main_home_div .main_home_categories {
@@ -46,7 +46,8 @@ body {
       padding: 10px; }
       .Container .main_home_div .main_home_display .product_card_div {
         display: flex;
-        flex-wrap: wrap; }
+        flex-wrap: wrap;
+        gap: 20px; }
     .Container .main_home_div .main_home_sorting {
       width: 10%; }
       .Container .main_home_div .main_home_sorting .sorting_title {
