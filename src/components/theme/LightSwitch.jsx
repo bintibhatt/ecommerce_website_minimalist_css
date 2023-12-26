@@ -10,9 +10,9 @@ function LightSwitch() {
   };
   return (
     <div className="LightSwitch">
-      <button onClick={handleClick}>
+      <i className="theme_i" onClick={handleClick}>
         {theme ? <DarkModeIcon /> : <LightModeIcon />}{" "}
-      </button>
+      </i>
     </div>
   );
 }

@@ -1,5 +1,68 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0; }
+
+.Container {
+  margin: 0; }
+  .Container .theme_button {
+    margin-left: 100%; }
+  .Container .LightSwitch {
+    display: flex;
+    align-items: center; }
+  .Container .navbar_div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px 10px 30px;
+    height: 50px; }
+    .Container .navbar_div section {
+      display: flex; }
+      .Container .navbar_div section .NavLink {
+        color: #000;
+        text-decoration: none;
+        padding: 0 0 0 20px; }
+    .Container .navbar_div .nav_section_right {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 4%; }
+      .Container .navbar_div .nav_section_right .nav_cart_icon {
+        cursor: pointer; }
+  .Container .main_home_div {
+    width: 80%;
+    display: flex;
+    gap: 30px; }
+    .Container .main_home_div .main_home_categories {
+      width: 15%; }
+      .Container .main_home_div .main_home_categories p:hover {
+        text-decoration: underline; }
+      .Container .main_home_div .main_home_categories .category_title {
+        font-size: 13px;
+        margin-bottom: 7px;
+        color: gray; }
+      .Container .main_home_div .main_home_categories .category_title:hover {
+        text-decoration: none; }
+    .Container .main_home_div .main_home_display {
+      width: 70%;
+      padding: 10px; }
+      .Container .main_home_div .main_home_display .product_card_div {
+        display: flex;
+        flex-wrap: wrap; }
+    .Container .main_home_div .main_home_sorting {
+      width: 10%; }
+      .Container .main_home_div .main_home_sorting .sorting_title {
+        font-size: 13px;
+        margin-bottom: 7px;
+        color: gray; }
+    .Container .main_home_div p {
+      margin: 0;
+      cursor: pointer; }
+
 .Container-dark {
-  background-color: #000; }
+  background-color: #141313;
+  color: #fff; }
+  .Container-dark .navbar_div section .NavLink {
+    color: #fff; }
 
 .Container-light {
-  background-color: #eee; }
+  background-color: #fff;
+  color: #000; }
