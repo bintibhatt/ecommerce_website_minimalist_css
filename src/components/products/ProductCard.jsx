@@ -16,18 +16,17 @@ export default function ProductCard({
   const { theme } = useTheme();
   const productImg = pImg[0];
   const textColor = theme ? "#000" : "#fff";
-  const border = theme ? "2px solid black" : "1px solid white";
   return (
     <div className="card_div">
-      <Card sx={{ minHeight: "250px", width: 250, border: { border } }}>
+      <Card sx={{ minHeight: "250px", width: 250, border: "none" }}>
         <CardCover>
-          <img src={productImg} loading="lazy" alt="" />
+          <img src={productImg} alt="" />
         </CardCover>
         <CardCover
           sx={{
             background: theme
-              ? "linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 200px),linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 300px)"
-              : "linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
+              ? "linear-gradient(rgba(0,0,0,0.1), rgba(255, 255, 255, 0.3) 200px)"
+              : "linear-gradient(rgba(255, 255, 255, 0.1),rgba(0,0,0,0.6) 200px)",
           }}
         />
         <CardContent sx={{ justifyContent: "flex-end" }}>

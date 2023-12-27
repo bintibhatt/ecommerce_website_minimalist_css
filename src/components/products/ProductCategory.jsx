@@ -28,11 +28,7 @@ function ProductCategory() {
     <div>
       <div className="product_card_div">
         {products.map((product) => (
-          <div
-            key={product.id}
-            id="product_card"
-            onClick={() => handleProductInfo(product.id)}
-          >
+          <div key={product.id} onClick={() => handleProductInfo(product.id)}>
             <ProductCard
               pTitle={product.title}
               pImg={product.images}

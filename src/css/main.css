@@ -1,3 +1,36 @@
+.product_info_div {
+  display: flex;
+  justify-content: center;
+  min-height: 92.2vh; }
+  .product_info_div .productInfo {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 100px 30px 100px;
+    border-radius: 20px; }
+    .product_info_div .productInfo .productInfo_images {
+      width: 50%;
+      display: flex;
+      gap: 170px;
+      padding: 20px;
+      justify-content: center;
+      align-items: center; }
+      .product_info_div .productInfo .productInfo_images section {
+        width: 10%;
+        display: block; }
+        .product_info_div .productInfo .productInfo_images section .productInfo_otherImg {
+          width: 100px;
+          height: 100px;
+          border-radius: 10px; }
+        .product_info_div .productInfo .productInfo_images section .productInfo_otherImg:hover {
+          border: 1px solid fuchsia; }
+      .product_info_div .productInfo .productInfo_images .productInfo_mainImg {
+        object-fit: cover;
+        border-radius: 10px; }
+    .product_info_div .productInfo .productInfo_content {
+      width: 35%;
+      padding: 130px 30px 30px 130px; }
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0; }
@@ -20,6 +53,10 @@ body {
         color: #000;
         text-decoration: none;
         padding: 0 0 0 20px; }
+    .Container .navbar_div .nav_section_left .website_name {
+      font-style: oblique;
+      font-weight: 600;
+      cursor: pointer; }
     .Container .navbar_div .nav_section_right {
       display: flex;
       align-items: center;
@@ -48,6 +85,11 @@ body {
         display: flex;
         flex-wrap: wrap;
         gap: 20px; }
+        .Container .main_home_div .main_home_display .product_card_div .card_div {
+          border: none; }
+        .Container .main_home_div .main_home_display .product_card_div .card_div:hover {
+          border: 2px solid fuchsia;
+          border-radius: 8px; }
     .Container .main_home_div .main_home_sorting {
       width: 10%; }
       .Container .main_home_div .main_home_sorting .sorting_title {

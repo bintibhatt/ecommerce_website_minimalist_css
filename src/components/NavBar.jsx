@@ -1,16 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import LightSwitch from "./theme/LightSwitch";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 function NavBar() {
+  const navigate = useNavigate();
   return (
     <div className="navbar_div">
       <section className="nav_section_left">
-        <p className="website_name">
-          <b>
-            <i>E-COMMERCE</i>
-          </b>
+        <p className="website_name" onClick={() => navigate("/")}>
+          E-COMMERCE
         </p>
         <NavLink className="NavLink" to="/">
           <div className="sectionDashboardName">

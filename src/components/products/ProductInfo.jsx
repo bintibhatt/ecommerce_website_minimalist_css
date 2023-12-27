@@ -1,88 +1,65 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import Button from "@mui/material/Button";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-// import { useProduct } from "./ProductContext";
-import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
-// import CartCounter from "../Cart/CartCounter";
+import CartCounter from "../cart/CartCounter";
+import { useTheme } from "../../context/ThemeContext";
 
 function ProductInfo() {
   const [product, setProduct] = useState([]);
+  const [mainImage, setMainImage] = useState("");
   const { productId } = useParams();
-  const navigate = useNavigate();
-  //   const productUse = useProduct();
 
-  //using async await to fetch data
+  const { theme } = useTheme();
+
+  const infoBorder = theme ? "1px solid black" : "1px solid white ";
+
   const fetchData = async () => {
     try {
       const response = await axios.get(
         `https://dummyjson.com/products/${productId}`
       );
+      const initialMainImage = response.data.thumbnail;
       setProduct(response.data);
-      //   productUse.setIsLoading(false);
+      setMainImage(initialMainImage);
     } catch (error) {
       console.log(error);
-      //   productUse.setIsLoading(false);
     }
+  };
+
+  const handleImageClick = (image) => {
+    setMainImage(image);
   };
 
   useState(() => {
     fetchData();
   }, []);
 
-  // useEffect(() => {
-  //   productUse.setIsLoading(true);
-
-  //   axios
-  //     .get(`https://dummyjson.com/products/${productId}`)
-  //     .then((response) => {
-  //       setProduct(response.data);
-  //       productUse.setIsLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       productUse.setIsLoading(false);
-  //     });
-  // }, [productId]);
-
-  function handleImageChange() {}
-
   return (
     <>
       <div className="product_info_div">
-        <Button
-          variant="contained"
-          startIcon={<ArrowBackIcon />}
-          onClick={() => {
-            navigate(-1, { search: `?product_id=${productId}` });
-          }}
-        >
-          Back
-        </Button>
-        <h2>Product Information</h2>
-        {/* {productUse.isLoading ? (
-          <Box sx={{ width: "1000", height: "1000", display: "flex" }}>
-            <CircularProgress />
-          </Box>
-        ) : ( */}
-        <div className="productInfo">
+        <div className="productInfo" style={{ border: `${infoBorder}` }}>
           <div className="productInfo_images">
-            <h3>{product.title}</h3>
-            <img src={product.thumbnail} alt={product.title} />
-            <div className="productImages" onClick={handleImageChange}>
+            <section>
               {product.images?.map((image, index) => (
-                <img key={index} src={image} alt={`Product ${index + 1}`} />
+                <img
+                  className="productInfo_otherImg"
+                  key={index}
+                  src={image}
+                  alt={`Product ${index + 1}`}
+                  onClick={() => handleImageClick(image)}
+                />
               ))}
-            </div>
+            </section>
+            <img
+              className="productInfo_mainImg"
+              src={mainImage}
+              alt={product.title}
+            />
           </div>
           <div className="productInfo_content">
-            <p>{product.id}</p>
-            <h3> {product.description}</h3>
-            <h3> ${product.price}</h3>
+            <h1>{product.title}</h1>
+            <h2> ${product.price}</h2>
+            <p> {product.description}</p>
             <ul>
               <li>
                 <p>Category: {product.category}</p>
@@ -101,10 +78,9 @@ function ProductInfo() {
               </li>
             </ul>
             <h4>Add to Cart:</h4>
-            {/* <CartCounter pId={productId} /> */}
+            <CartCounter />
           </div>
         </div>
-        {/* )} */}
       </div>
     </>
   );
