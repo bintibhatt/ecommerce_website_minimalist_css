@@ -1,7 +1,7 @@
 .product_info_div {
     display: flex;
     justify-content: center;
-    min-height: 92.2vh;
+    height: 92.3vh;
 
     .productInfo {
         width: 80%;
@@ -26,14 +26,17 @@
                     width: 100px;
                     height: 100px;
                     border-radius: 10px;
+                    border: 4px solid transparent;
                 }
 
                 .productInfo_otherImg:hover {
-                    border: 1px solid fuchsia;
+                    border: 2px solid red;
                 }
             }
 
             .productInfo_mainImg {
+                max-width: 500px;
+                max-height: 600px;
                 object-fit: cover;
                 border-radius: 10px;
             }

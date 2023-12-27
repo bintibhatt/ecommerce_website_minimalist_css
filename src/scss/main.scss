@@ -1,5 +1,26 @@
 @import "_productInfo.scss";
 
+
+:root {
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: darkgray;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: gray;
+        border-radius: 6px;
+        border: 3px solid lightgray;
+    }
+
+    .MuiDrawer-paper {
+        width: 400px;
+    }
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -50,6 +71,7 @@ body {
             .nav_cart_icon {
                 cursor: pointer;
             }
+
         }
 
     }
@@ -61,6 +83,11 @@ body {
 
         .main_home_categories {
             width: 15%;
+
+            p {
+                margin-bottom: 5px;
+                text-transform: capitalize;
+            }
 
             p:hover {
                 text-decoration: underline;
@@ -87,11 +114,11 @@ body {
                 gap: 20px;
 
                 .card_div {
-                    border: none;
+                    border: 2px solid transparent;
                 }
 
                 .card_div:hover {
-                    border: 2px solid fuchsia;
+                    border: 2px solid red;
                     border-radius: 8px;
                 }
 
@@ -128,10 +155,39 @@ body {
             }
         }
     }
+
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: darkgray;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: gray;
+        border-radius: 6px;
+        border: 3px solid lightgray;
+    }
+
 }
 
 .Container-light {
     background-color: #fff;
     color: #000;
+
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: lightgray;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: lightgray;
+        border-radius: 6px;
+        border: 3px solid gray;
+    }
 
 }

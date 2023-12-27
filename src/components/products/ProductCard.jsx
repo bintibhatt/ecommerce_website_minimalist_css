@@ -25,8 +25,8 @@ export default function ProductCard({
         <CardCover
           sx={{
             background: theme
-              ? "linear-gradient(rgba(0,0,0,0.1), rgba(255, 255, 255, 0.3) 200px)"
-              : "linear-gradient(rgba(255, 255, 255, 0.1),rgba(0,0,0,0.6) 200px)",
+              ? "linear-gradient(rgba(0,0,0,0.1), rgba(255, 255, 255, 0.5) 200px)"
+              : "linear-gradient(rgba(255, 255, 255, 0.1),rgba(0,0,0,0.5) 200px)",
           }}
         />
         <CardContent sx={{ justifyContent: "flex-end" }}>

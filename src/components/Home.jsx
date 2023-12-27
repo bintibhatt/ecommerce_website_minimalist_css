@@ -43,12 +43,12 @@ function Home() {
         <div className="main_home_display">
           <Outlet />
         </div>
-        <div className="main_home_sorting">
+        {/* <div className="main_home_sorting">
           <p className="sorting_title">Sort by</p>
           <p>Sort</p>
           <p>Sort</p>
           <p>Sort</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
