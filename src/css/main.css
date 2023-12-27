@@ -137,7 +137,7 @@ body {
   .Container-dark .main_home_div .main_home_categories .categoryLink:hover {
     text-decoration: underline; }
   .Container-dark .main_home_div .main_home_categories .categoryLink.activeCategory {
-    color: cyan;
+    color: red;
     text-decoration: underline; }
 
 .Container-light {
@@ -157,5 +157,5 @@ body {
   .Container-light .main_home_div .main_home_categories .categoryLink:hover {
     text-decoration: underline; }
   .Container-light .main_home_div .main_home_categories .categoryLink.activeCategory {
-    color: cyan;
+    color: red;
     text-decoration: underline; }
