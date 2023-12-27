@@ -7,11 +7,11 @@ import { MainProvider } from "./context/MainContext";
 function App() {
   return (
     <div>
-      <MainProvider>
-        <ThemeProvider>
+      <ThemeProvider>
+        <MainProvider>
           <MainPage />
-        </ThemeProvider>
-      </MainProvider>
+        </MainProvider>
+      </ThemeProvider>
       {/* <CartDrawer /> */}
     </div>
   );

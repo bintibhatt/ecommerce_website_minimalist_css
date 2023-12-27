@@ -62,7 +62,7 @@ body {
   .Container .navbar_div {
     display: flex;
     justify-content: space-between;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 30px;
     height: 50px; }
     .Container .navbar_div section {
       display: flex; }
@@ -78,7 +78,7 @@ body {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 4%; }
+      gap: 18px; }
       .Container .navbar_div .nav_section_right .nav_cart_icon {
         cursor: pointer; }
   .Container .main_home_div {
