@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import LightSwitch from "./theme/LightSwitch";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
@@ -10,7 +9,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useTheme } from "../context/ThemeContext";
 import Badge from "@mui/material/Badge";
 
-function NavBar() {
+function DrawerCart() {
   const navigate = useNavigate();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { productCart } = useMain();
@@ -28,27 +27,8 @@ function NavBar() {
   const handleDrawerClose = () => {
     setIsDrawerOpen(false);
   };
-
   return (
-    <div className="navbar_div">
-      <section className="nav_section_left">
-        <p className="website_name" onClick={() => navigate("/")}>
-          E-COMMERCE
-        </p>
-        <NavLink className="NavLink" to="/">
-          <div className="sectionDashboardName">
-            <p>All</p>
-          </div>
-        </NavLink>
-      </section>
-      <section className="nav_section_right">
-        <Badge badgeContent={badgeNumber} color="success">
-          <ShoppingCartIcon onClick={handleDrawerOpen} />
-        </Badge>
-
-        <LightSwitch />
-      </section>
-
+    <div>
       <Drawer anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
         <div
           className="drawer_content"
@@ -83,4 +63,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default DrawerCart;

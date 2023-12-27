@@ -78,7 +78,11 @@ function ProductInfo() {
               </li>
             </ul>
             <h4>Add to Cart:</h4>
-            <CartCounter pId={productId} />
+            <CartCounter
+              pId={productId}
+              pPrice={product.price}
+              pTitle={product.title}
+            />
           </div>
         </div>
       </div>

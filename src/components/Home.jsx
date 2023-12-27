@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useMain } from "../context/MainContext";
 import axios from "axios";
 import { Outlet } from "react-router-dom";
@@ -7,10 +7,7 @@ import { Outlet } from "react-router-dom";
 function Home() {
   const { setCategories, categories } = useMain();
   const navigate = useNavigate();
-
-  function getByCategory(value) {
-    navigate(`/products/category/${value}`);
-  }
+  const { pCategory } = useParams();
 
   const fetchData = async () => {
     try {
@@ -23,8 +20,9 @@ function Home() {
     }
   };
 
-  useState(() => {
+  useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -35,14 +33,22 @@ function Home() {
         <div className="main_home_categories">
           <p className="category_title">Categories</p>
           {categories.map((category) => (
-            <p key={category} onClick={() => getByCategory(category)}>
-              {category}
-            </p>
+            <div
+              key={category}
+              className={`categoryLink ${
+                category === pCategory ? "activeCategory" : ""
+              }`}
+              to={`/products/category/${category}`}
+              onClick={() => navigate(`/products/category/${category}`)}
+            >
+              <p>{category}</p>
+            </div>
           ))}
         </div>
         <div className="main_home_display">
           <Outlet />
         </div>
+
         {/* <div className="main_home_sorting">
           <p className="sorting_title">Sort by</p>
           <p>Sort</p>
