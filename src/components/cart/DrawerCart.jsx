@@ -28,30 +28,27 @@ function DrawerComponent({
           {!productCart.length ? (
             <h3> Your cart is empty!</h3>
           ) : (
-            productCart?.map((item) => {
-              return (
-                <div key={item.id}>
-                  <section className="cartContentSection">
-                    <section className="cartContentSection_left">
-                      <img src={item.image} alt="" />
-                    </section>
-                    <section className="cartContentSection_right">
-                      <section>
-                        <h4>{item.title}</h4>
-                        <p>Total: ${item.price * item.productCount}</p>
+            <div>
+              {productCart?.map((item) => {
+                return (
+                  <div key={item.id}>
+                    <section className="cartContentSection">
+                      <section className="cartContentSection_left">
+                        <img src={item.image} alt="" />
                       </section>
-                      <CartCounter pId={item.id} />
+                      <section className="cartContentSection_right">
+                        <section>
+                          <h4>{item.title}</h4>
+                          <p>Total: ${item.price * item.productCount}</p>
+                        </section>
+                        <CartCounter pId={item.id} />
+                      </section>
                     </section>
-                  </section>
-                  <hr></hr>
-                </div>
-              );
-            })
-          )}
-        </div>
-        <div>
-          {
-            <div className="cartContent_total">
+                    <hr></hr>
+                  </div>
+                );
+              })}
+              <hr></hr>
               <h2>
                 Total: $
                 {(() => {
@@ -63,7 +60,7 @@ function DrawerComponent({
                 })()}
               </h2>
             </div>
-          }
+          )}
         </div>
       </div>
     </Drawer>
