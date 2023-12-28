@@ -1,11 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ProductCard from "./ProductCard";
+import { useMain } from "../context/MainContext";
 
 function AllProducts() {
-  const [products, setProducts] = useState([]);
+  const { products, setProducts } = useMain();
   const { pCategory } = useParams();
   const navigate = useNavigate();
 

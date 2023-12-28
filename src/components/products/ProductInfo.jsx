@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import CartCounter from "../cart/CartCounter";
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from "../context/ThemeContext";
 
 function ProductInfo() {
   const [product, setProduct] = useState([]);

@@ -5,8 +5,8 @@ import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ClearIcon from "@mui/icons-material/Clear";
-import { useMain } from "../../context/MainContext";
-import { useTheme } from "../../context/ThemeContext";
+import { useMain } from "../context/MainContext";
+import { useTheme } from "../context/ThemeContext";
 
 export default function CartCounter({ pId, pPrice, pTitle, pImg }) {
   const { productCart, setProductCart } = useMain();

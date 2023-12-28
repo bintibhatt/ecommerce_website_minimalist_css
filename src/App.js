@@ -1,8 +1,8 @@
 import "./css/main.css";
 // import CartDrawer from "./components/products/CartDrawer";
-import MainPage from "./MainPage";
-import { ThemeProvider } from "./context/ThemeContext";
-import { MainProvider } from "./context/MainContext";
+import MainPage from "./components/routes/MainPage";
+import { ThemeProvider } from "./components/context/ThemeContext";
+import { MainProvider } from "./components/context/MainContext";
 
 function App() {
   return (

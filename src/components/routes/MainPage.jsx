@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { useTheme } from "./context/ThemeContext";
-import NavBar from "./components/NavBar";
-import Home from "./components/Home";
-import AllProducts from "./components/products/AllProducts";
-import ProductCategory from "./components/products/ProductCategory";
-import ProductInfo from "./components/products/ProductInfo";
+import { useTheme } from "../context/ThemeContext";
+import NavBar from "../NavBar";
+import Home from "../Home";
+import AllProducts from "../products/AllProducts";
+import ProductCategory from "../products/ProductCategory";
+import ProductInfo from "../products/ProductInfo";
 
 function MainPage() {
   const { theme } = useTheme();
