@@ -82,6 +82,7 @@ function ProductInfo() {
               pId={productId}
               pPrice={product.price}
               pTitle={product.title}
+              pImg={product.thumbnail}
             />
           </div>
         </div>

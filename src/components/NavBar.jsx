@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import LightSwitch from "./theme/LightSwitch";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
 import { useMain } from "../context/MainContext";
-import CartCounter from "./cart/CartCounter";
-import CloseIcon from "@mui/icons-material/Close";
 import { useTheme } from "../context/ThemeContext";
 import Badge from "@mui/material/Badge";
+import AttractionsIcon from "@mui/icons-material/Attractions";
+import DrawerComponent from "./cart/DrawerCart";
 
 function NavBar() {
   const navigate = useNavigate();
@@ -33,7 +31,7 @@ function NavBar() {
     <div className="navbar_div">
       <section className="nav_section_left">
         <p className="website_name" onClick={() => navigate("/")}>
-          E-COMMERCE
+          <AttractionsIcon /> E-COMMERCE
         </p>
         <NavLink className="NavLink" to="/">
           <div className="sectionDashboardName">
@@ -45,40 +43,16 @@ function NavBar() {
         <Badge badgeContent={badgeNumber} color="success">
           <ShoppingCartIcon onClick={handleDrawerOpen} />
         </Badge>
-
         <LightSwitch />
       </section>
 
-      <Drawer anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
-        <div
-          className="drawer_content"
-          style={{
-            backgroundColor: `${bgColor}`,
-            minHeight: "100%",
-            color: `${textColor}`,
-          }}
-        >
-          <IconButton onClick={handleDrawerClose}>
-            <CloseIcon sx={{ color: `${textColor}` }} />
-          </IconButton>
-          <div>
-            {!productCart.length ? (
-              <h3> Cart is empty!</h3>
-            ) : (
-              productCart?.map((item) => {
-                return (
-                  <div key={item.id}>
-                    <section>
-                      {item.title} :: ${item.price}
-                      <CartCounter pId={item.id} />
-                    </section>
-                  </div>
-                );
-              })
-            )}
-          </div>
-        </div>
-      </Drawer>
+      <DrawerComponent
+        isDrawerOpen={isDrawerOpen}
+        bgColor={bgColor}
+        textColor={textColor}
+        handleDrawerClose={handleDrawerClose}
+        productCart={productCart}
+      />
     </div>
   );
 }

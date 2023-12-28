@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useMain } from "../context/MainContext";
 import axios from "axios";
 import { Outlet } from "react-router-dom";
+const filters = ["A-Z", "Z-A", "Cost: Low to High", "Cost: High to Low"];
 
 function Home() {
   const { setCategories, categories } = useMain();
@@ -49,12 +50,14 @@ function Home() {
           <Outlet />
         </div>
 
-        {/* <div className="main_home_sorting">
+        <div className="main_home_sorting">
           <p className="sorting_title">Sort by</p>
-          <p>Sort</p>
-          <p>Sort</p>
-          <p>Sort</p>
-        </div> */}
+          {filters.map((filter) => (
+            <div key={filter}>
+              <p className="sortingLink">{filter}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

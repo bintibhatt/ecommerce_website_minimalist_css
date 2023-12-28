@@ -1,13 +1,14 @@
 .product_info_div {
   display: flex;
   justify-content: center;
-  height: 92.3vh; }
+  height: 841px; }
   .product_info_div .productInfo {
     width: 80%;
     display: flex;
     justify-content: space-between;
     margin: 30px 100px 30px 100px;
-    border-radius: 20px; }
+    border-radius: 20px;
+    height: 730px; }
     .product_info_div .productInfo .productInfo_images {
       width: 50%;
       display: flex;
@@ -22,7 +23,7 @@
           width: 100px;
           height: 100px;
           border-radius: 10px;
-          border: 4px solid transparent; }
+          border: 2px solid transparent; }
         .product_info_div .productInfo .productInfo_images section .productInfo_otherImg:hover {
           border: 2px solid red; }
       .product_info_div .productInfo .productInfo_images .productInfo_mainImg {
@@ -46,7 +47,32 @@
   border: 3px solid lightgray; }
 
 :root .MuiDrawer-paper {
-  width: 400px; }
+  width: 600px; }
+  :root .MuiDrawer-paper .drawer_content {
+    border: 2px solid white; }
+    :root .MuiDrawer-paper .drawer_content .cartContent {
+      padding: 30px; }
+      :root .MuiDrawer-paper .drawer_content .cartContent .cartContentSection {
+        display: flex;
+        justify-content: space-between; }
+        :root .MuiDrawer-paper .drawer_content .cartContent .cartContentSection .cartContentSection_left {
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          :root .MuiDrawer-paper .drawer_content .cartContent .cartContentSection .cartContentSection_left img {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #141313;
+            border-radius: 15px; }
+        :root .MuiDrawer-paper .drawer_content .cartContent .cartContentSection .cartContentSection_right {
+          width: 75%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center; }
+    :root .MuiDrawer-paper .drawer_content .cartContent_total {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -71,8 +97,9 @@ body {
         text-decoration: none;
         padding: 0 0 0 20px; }
     .Container .navbar_div .nav_section_left .website_name {
-      font-style: oblique;
-      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      font-weight: 900;
       cursor: pointer; }
     .Container .navbar_div .nav_section_right {
       display: flex;
@@ -114,6 +141,8 @@ body {
         font-size: 13px;
         margin-bottom: 7px;
         color: gray; }
+      .Container .main_home_div .main_home_sorting .sortingLink:hover {
+        text-decoration: underline; }
     .Container .main_home_div p {
       margin: 0;
       cursor: pointer; }

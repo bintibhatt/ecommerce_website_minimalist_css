@@ -8,7 +8,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import { useMain } from "../../context/MainContext";
 import { useTheme } from "../../context/ThemeContext";
 
-export default function CartCounter({ pId, pPrice, pTitle }) {
+export default function CartCounter({ pId, pPrice, pTitle, pImg }) {
   const { productCart, setProductCart } = useMain();
   const { theme } = useTheme();
 
@@ -19,7 +19,7 @@ export default function CartCounter({ pId, pPrice, pTitle }) {
     if (!productCart?.find((element) => element.id === pId)) {
       setProductCart((prev) => [
         ...prev,
-        { id: pId, productCount: 1, price: pPrice, title: pTitle },
+        { id: pId, productCount: 1, price: pPrice, title: pTitle, image: pImg },
       ]);
     } else {
       setProductCart((prev) =>

@@ -1,66 +1,73 @@
-import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import React from "react";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import { useMain } from "../context/MainContext";
-import CartCounter from "./cart/CartCounter";
 import CloseIcon from "@mui/icons-material/Close";
-import { useTheme } from "../context/ThemeContext";
-import Badge from "@mui/material/Badge";
+import CartCounter from "../cart/CartCounter";
 
-function DrawerCart() {
-  const navigate = useNavigate();
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { productCart } = useMain();
-  const { theme } = useTheme();
-
-  let badgeNumber = productCart.length;
-
-  const bgColor = theme ? "white" : "black";
-  const textColor = theme ? "black" : "white";
-
-  const handleDrawerOpen = () => {
-    setIsDrawerOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setIsDrawerOpen(false);
-  };
+function DrawerComponent({
+  handleDrawerClose,
+  textColor,
+  bgColor,
+  isDrawerOpen,
+  productCart,
+}) {
   return (
-    <div>
-      <Drawer anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
-        <div
-          className="drawer_content"
-          style={{
-            backgroundColor: `${bgColor}`,
-            minHeight: "100%",
-            color: `${textColor}`,
-          }}
-        >
-          <IconButton onClick={handleDrawerClose}>
-            <CloseIcon sx={{ color: `${textColor}` }} />
-          </IconButton>
-          <div>
-            {!productCart.length ? (
-              <h3> Cart is empty!</h3>
-            ) : (
-              productCart?.map((item) => {
-                return (
-                  <div key={item.id}>
-                    <section>
-                      {item.title} :: ${item.price}
+    <Drawer anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
+      <div
+        className="drawer_content"
+        style={{
+          backgroundColor: `${bgColor}`,
+          minHeight: "100%",
+          color: `${textColor}`,
+        }}
+      >
+        <IconButton onClick={handleDrawerClose}>
+          <CloseIcon sx={{ color: `${textColor}` }} />
+        </IconButton>
+        <div className="cartContent">
+          {!productCart.length ? (
+            <h3> Your cart is empty!</h3>
+          ) : (
+            productCart?.map((item) => {
+              return (
+                <div key={item.id}>
+                  <section className="cartContentSection">
+                    <section className="cartContentSection_left">
+                      <img src={item.image} alt="" />
+                    </section>
+                    <section className="cartContentSection_right">
+                      <section>
+                        <h4>{item.title}</h4>
+                        <p>Total: ${item.price * item.productCount}</p>
+                      </section>
                       <CartCounter pId={item.id} />
                     </section>
-                  </div>
-                );
-              })
-            )}
-          </div>
+                  </section>
+                  <hr></hr>
+                </div>
+              );
+            })
+          )}
         </div>
-      </Drawer>
-    </div>
+        <div>
+          {
+            <div className="cartContent_total">
+              <h2>
+                Total: $
+                {(() => {
+                  let total = 0;
+                  productCart.forEach((element) => {
+                    total += element.price * element.productCount;
+                  });
+                  return total;
+                })()}
+              </h2>
+            </div>
+          }
+        </div>
+      </div>
+    </Drawer>
   );
 }
 
-export default DrawerCart;
+export default DrawerComponent;
