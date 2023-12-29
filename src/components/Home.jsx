@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 const filters = ["A-Z", "Z-A", "Cost: Low to High", "Cost: High to Low"];
 
 function Home() {
-  const { setCategories, categories, products, setProducts } = useMain();
+  const { setCategories, categories } = useMain();
   const navigate = useNavigate();
   const { pCategory } = useParams();
 
@@ -21,18 +21,8 @@ function Home() {
     }
   };
 
-  const fetchProducts = async () => {
-    try {
-      const response = await axios.get("https://dummyjson.com/products");
-      setProducts(response.data.products);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     fetchData();
-    fetchProducts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -30,8 +30,10 @@ export default function CartCounter({ pId, pPrice, pTitle, pImg }) {
         )
       );
     }
-    console.log(productCart);
   }
+
+  // { id: { id: pId, productCount: 1, price: pPrice, title: pTitle, image: pImg }}
+  // Object.key kari ne karvanu
 
   function subtractCount() {
     productCart?.forEach((element) => {
@@ -40,7 +42,6 @@ export default function CartCounter({ pId, pPrice, pTitle, pImg }) {
         setProductCart([...productCart]);
       }
     });
-    console.log(productCart);
   }
 
   function clearCount() {
